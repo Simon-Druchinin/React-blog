@@ -30,9 +30,16 @@ export default function Header(){
 
 	const handleMenuToggleClick = element => {
 		element.target.classList.toggle("active");
+
+		const linkContainer = linkContainerRef.current;
+		const header = headerRef.current;
+		linkContainer.classList.toggle("active");
+		header.classList.add("shadow");
 	}
 
 	const headerRef = useRef(null);
+	const linkContainerRef = useRef(null);
+
 	useEffect(() => {
 		window.addEventListener("click", handleDropDownClick)
 		window.addEventListener("scroll", handleHeaderScroll)
@@ -57,7 +64,7 @@ export default function Header(){
 							<h1 className="logo-caption">Simon's&nbsp;Blog</h1>
 					</div>
 				</a>
-				<div className="link-container">
+				<div className="link-container" ref={linkContainerRef}>
 					<a href="#" className="link">Главная</a>
 					<a href="#" className="link">Портфолио</a>
 					<a href="#" className="link">Контакты</a>

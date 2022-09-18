@@ -1,29 +1,37 @@
+//mixin-font-face
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff ttf svg) {
+    $src: null;
+    $extmods: (
+            svg: "#" + str-replace($name, " ", "_")
+    );
+    $formats: (
+            ttf: "truetype"
+    );
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+        font-display: swap;
+    }
+}
+
 $roboto-font-path: "../assets/fonts/roboto";
 
-@font-face {
-    src: url("#{$roboto-font-path}/Roboto-Thin.ttf") format("ttf");
-
-    font-family: "Roboto";
-    font-weight: 100;
-}
-
-@font-face {
-    src: url($roboto-font-path + "/Roboto-Light.ttf") format("ttf");
-
-    font-family: "Roboto";
-    font-weight: 300;
-}
-
-@font-face {
-    src: url(#{$roboto-font-path}/Roboto-Regular.ttf) format("ttf");
-
-    font-family: "Roboto";
-    font-weight: 400;
-}
-
-@font-face {
-    src: url(#{$roboto-font-path}/Roboto-Bold.ttf) format("ttf");
-
-    font-family: "Roboto";
-    font-weight: 700;
-}
+@include font-face("Roboto", "#{$roboto-font-path}/Roboto-Thin", 100, normal, ttf);
+@include font-face("Roboto", "#{$roboto-font-path}/Roboto-Light", 300, normal, ttf);
+@include font-face("Roboto", "#{$roboto-font-path}/Roboto-Regular", 400, normal, ttf);
+@include font-face("Roboto", "#{$roboto-font-path}/Roboto-Bold", 700, normal, ttf);
