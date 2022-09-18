@@ -1,0 +1,32 @@
+@import "./variables.scss";
+
+@mixin transparent-color-button($color: $sea_blue){
+    padding: 9px 12px;
+    color: $color;
+    background-color: transparent;
+    border: 1px solid $color;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .15s ease-out;
+
+    &:hover{
+        background: none;
+        color: #000;
+        background-color: $color;
+        mix-blend-mode: screen;
+    }
+}
+
+@mixin solid-color-button($color: $white, $background-color: $blue){
+    padding: 5px 7px;
+    color: $color;
+    background-color: $background-color;
+    border: 1px solid $background-color;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .15s ease-out;
+
+    &:hover{
+        background-color: darken($background-color, 10%);
+    }
+}
