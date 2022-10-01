@@ -80,7 +80,7 @@ export default function Header(){
 							<input type="email" name="email" id="email" placeholder="email@example.com" />
 							<label htmlFor="password">Пароль</label>
 							<input type="password" name="password" id="password" placeholder="example" />
-							<button type="submit" className="info-button__solid">Войти</button>
+							<button type="submit" className="info-button__solid">Войти</button><br/>
 							<a href="#" className="registration-link">Зарегистрироваться</a>
 						</form>
 					</div>

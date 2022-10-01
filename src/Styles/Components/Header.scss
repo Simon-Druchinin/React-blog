@@ -170,7 +170,7 @@
 	@media screen and (max-width:768px) {
 		background-color: $dark_background_color;
 		position: absolute;
-		top: 70px;
+		top: 69px;
 		left: -15px;
 		height: 100vh;
 		min-width: 250px;
@@ -206,12 +206,13 @@
 }
 
 .login-form > .info-button__solid {
-	font-size: 14px;
+	font-size: 20px;
 	@include solid-color-button($white, $blue);
 }
 
 .dropdown{
 	position: relative;
+	z-index: 999;
 }
 
 .dropdown.active > .link,
@@ -221,7 +222,7 @@
 
 .dropdown-menu {
 	position: absolute;
-	left: -110px;
+	right: 0.4rem;
 	top: calc(100% + .25rem);
 	background-color: #fff;
 	padding: 0.75rem;
@@ -233,7 +234,7 @@
 	transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 
 	@media screen and (max-width:768px) {
-		left: -130px;
+		right: 0.5rem;
 	}
 }
 
@@ -245,10 +246,16 @@
 
 .dropdown-menu > .login-form >{
 	input{
+		font-size: 16px;
 		margin-bottom: 5px;
 	}
 
+	label{
+		font-size: 18px;
+	}
+
 	.info-button__solid{
+		font-size: 18px;
 		margin-top: 5px;
 		margin-bottom: 3px;
 	}
