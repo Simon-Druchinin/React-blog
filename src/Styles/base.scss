@@ -1,10 +1,50 @@
+@import "./mixins.scss";
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Roboto, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
 body{
-    height: 200vh;
+	height: 200vh;
+}
+
+.container{
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	flex-direction: column;
+	width: 80%;
+	margin: 0 auto;
+  margin-top: 15px;
+}
+
+.column-container{
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.row-container{
+	width: 100%;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.info-button__solid {
+	font-size: 16px;
+	@include solid-color-button($white, $blue);
+}
+
+@media screen and (max-width:768px){
+	.container{
+		width: 95%;
+	}
 }

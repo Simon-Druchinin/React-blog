@@ -29,4 +29,11 @@
     &:hover{
         background-color: darken($background-color, 10%);
     }
+
+    & > a{
+        color: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        text-decoration: none;
+    }
 }

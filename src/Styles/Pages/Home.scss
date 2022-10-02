@@ -1,0 +1,29 @@
+.card-wrap{
+  margin-top: 20px;
+
+  & > .card-container:not(:last-child){
+    margin-right: 25px;
+  }
+
+}
+
+@media screen and (max-width:1218px){
+  .card-wrap > .card-container{
+    margin-right: 25px;
+  }
+
+  .card-wrap > .card-container:not(:last-child){
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width:625px){
+  .card-wrap > .card-container{
+    margin-right: 0;
+
+    &:not(:last-child){
+      margin-right: 0;
+    }
+  }
+}
+

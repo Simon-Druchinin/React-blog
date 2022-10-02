@@ -1,0 +1,87 @@
+@import "../variables.scss";
+
+.carousel{
+  &-container{
+    height: 40vw;
+    max-height: 600px !important;
+    min-height: 200px !important;
+    width: 100%;
+    border: 7px solid $white;
+    border-radius: 7px;
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.2);
+
+    display: flex;
+    align-items: center;
+  }
+
+  &-window{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &-items-container{
+    height: 100%;
+    display: flex;
+
+    transition: translate;
+    transition-property: transform;
+    // transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+.page__main-container{
+  height: 100%;
+}
+
+.arrow{
+  cursor: pointer;
+  position: absolute;
+  top: -7px;
+  z-index: 10; 
+  color: darken($gray_text_color, 10%);
+  transition: color 150ms ease-in-out;
+  font-size: 24px;
+
+  &-container{
+    position: relative;
+  }
+
+  &-left{
+    left: 15px;
+  }
+
+  &-right{
+    right: 15px;
+  }
+
+  &:hover{
+    color: $dark-gray;
+  }
+}
+
+.item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  height: 100%;
+
+  img{
+    width: 100%;
+  }
+
+  &-1{
+    background-color: cornflowerblue;
+  }
+
+  &-2{
+    background-color: coral;
+  }
+
+  &-3{
+    background-color: darkseagreen;
+  }
+}
+
